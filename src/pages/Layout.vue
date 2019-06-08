@@ -14,10 +14,10 @@
         <v-list class="pa-0">
           <v-list-tile avatar>
             <v-list-tile-avatar>
-              <img src="../assets/1.jpeg">
+              <img src="../assets/1.jpg">
             </v-list-tile-avatar>
             <v-list-tile-content>
-              <v-list-tile-title>穆沐</v-list-tile-title>
+              <v-list-tile-title>zhuzhiqiang997</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
