@@ -1,0 +1,21 @@
+@startuml C4_Component
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title 乐优管理系统组件图
+
+Container_Boundary(web_app, "前端应用") {
+    Component(dashboard, "仪表盘", "Vue组件", "系统概览视图")
+    Component(item_mgmt, "商品管理", "Vue组件", "管理商品/分类/品牌")
+    Component(user_mgmt, "用户管理", "Vue组件", "管理用户和权限")
+    Component(auth, "认证模块", "Vue组件", "处理登录/登出")
+    Component(order_mgmt, "订单管理", "Vue组件", "处理订单相关功能")
+    Component(log_view, "日志查看", "Vue组件", "展示系统日志")
+}
+
+Rel(dashboard, item_mgmt, "跳转到")
+Rel(dashboard, user_mgmt, "跳转到") 
+Rel(dashboard, order_mgmt, "跳转到")
+Rel(auth, user_mgmt, "授权")
+Rel(user_mgmt, log_view, "查看")
+Rel(item_mgmt, order_mgmt, "关联")
+@enduml

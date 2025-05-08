@@ -1,0 +1,15 @@
+@startuml C4_Context
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+title 乐优管理系统上下文图
+
+Person(admin, "管理员", "管理系统")
+System(manage_web, "乐优管理后台", "Web管理界面")
+
+System_Ext(auth_service, "认证服务", "处理用户认证")
+System_Ext(log_service, "日志服务", "记录操作日志")
+
+Rel(admin, manage_web, "使用", "HTTPS")
+Rel(manage_web, auth_service, "调用", "API")
+Rel(manage_web, log_service, "发送日志", "HTTP")
+@enduml

@@ -1,0 +1,21 @@
+@startuml C4_Code
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title 商品管理模块代码图
+
+Component_Boundary(item_mgmt, "商品管理模块") {
+    Component(brand, "Brand.vue", "Vue组件", "品牌管理")
+    Component(category, "Category.vue", "Vue组件", "分类管理") 
+    Component(goods, "Goods.vue", "Vue组件", "商品管理")
+    Component(spec, "Specification.vue", "Vue组件", "规格参数管理")
+    Component(sku, "Sku.vue", "Vue组件", "SKU管理")
+    Component(search, "Search.vue", "Vue组件", "商品搜索")
+}
+
+Rel(brand, category, "关联")
+Rel(category, goods, "包含")
+Rel(goods, spec, "拥有规格")
+Rel(goods, sku, "包含SKU")
+Rel(search, goods, "查询")
+Rel(search, spec, "筛选")
+@enduml

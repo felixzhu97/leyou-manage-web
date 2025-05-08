@@ -1,0 +1,19 @@
+@startuml C4_Container
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+title 乐优管理系统容器图
+
+System_Boundary(manage_system, "乐优管理系统") {
+    Container(web_app, "前端应用", "Vue.js", "提供Web管理界面")
+    Container(api, "后端API", "Spring Boot", "提供业务逻辑和数据访问")
+    Container(db, "数据库", "MySQL", "存储业务数据")
+    
+    Container(redis, "缓存服务", "Redis", "缓存热点数据")
+    Container(mq, "消息队列", "RabbitMQ", "处理异步任务")
+}
+
+Rel(web_app, api, "调用", "HTTPS/JSON")
+Rel(api, db, "读写", "JDBC")
+Rel(api, redis, "缓存访问", "Redis协议")
+Rel(api, mq, "发送消息", "AMQP")
+@enduml
