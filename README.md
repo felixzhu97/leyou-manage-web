@@ -6,9 +6,23 @@
 
 - 用户认证与权限管理
 - 商品目录管理（品牌、分类、规格）
-- 库存管理
-- 订单处理
-- 数据看板与分析
+  - 品牌管理：CRUD 操作、品牌关联分类
+  - 分类管理：多级分类树、规格参数绑定
+  - 商品管理：SPU/SKU 管理、商品上下架
+  - 规格参数：规格组与参数管理
+- 库存管理：库存预警、库存调拨
+- 订单处理：订单状态跟踪、退换货处理
+- 数据看板与分析：销售统计、用户行为分析
+
+## 模块架构
+
+![C4组件图](./docs/c4_code.puml)
+
+关键模块交互关系：
+
+1. 商品模块为核心，关联品牌、分类、规格
+2. 搜索模块依赖商品和规格数据
+3. 订单模块依赖商品库存数据
 
 ## 环境要求
 
@@ -77,7 +91,16 @@ npm run build --report
 
 ## API 文档
 
-前端界面与乐优后端 API 通信，详见[API 文档](https://api.leyou-system.com/docs)。
+前端界面与乐优后端 API 通信：
+
+- [基础认证 API](https://api.leyou-system.com/docs/auth)
+- [商品管理 API](https://api.leyou-system.com/docs/item)
+  - 品牌接口：/brands
+  - 分类接口：/categories
+  - 商品接口：/goods
+  - 规格接口：/specs
+- [订单管理 API](https://api.leyou-system.com/docs/trade)
+- [数据统计 API](https://api.leyou-system.com/docs/stat)
 
 ## 贡献指南
 
